@@ -11,6 +11,7 @@ window.Button = {
     callback(event);
   },
   component: Button,
+
 };
 
 

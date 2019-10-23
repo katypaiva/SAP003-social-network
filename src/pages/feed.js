@@ -80,7 +80,7 @@ import Textarea from '../components/textarea.js';
       <section class='card-post'>
       <div class='card-texts'>
       <p class='post-text' data-id='${post.id}' >${post.data().text}</p>
-      <p class='likes'>${post.data().likes}
+      <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.data().likes}
       <p class='date-time'>${post.data().time}</p>
 
       ${Button({ 
@@ -107,6 +107,7 @@ import Textarea from '../components/textarea.js';
       </div>
       </section>
       `
+
     listPost.innerHTML += templatePost
   }
 
@@ -145,6 +146,43 @@ function saveEditPost(event) {
 
   window.deletePost = deletePost;
   window.editPost = editPost;
-  
+  })
+    
+}
 
-  export default Feed;
+//Função que abre campo de comentário
+function commentPost() {
+  const commentInput = document.querySelector('#card-post');
+  const templateComment = `
+    <section class='card-comment'>
+    <textarea></textarea>
+    ${window.Button.component({
+    class: 'btn-save-comment',
+    onclick: teste,
+    title: 'SALVAR'
+  })}
+
+  ${window.Button.component({
+    class: 'btn-cancel-comment',
+    onclick: cancelComment,
+    title: 'CANCELAR'
+  })}
+    </section>
+    `
+  commentInput.innerHTML = templateComment;
+
+//Criar função que pega o valor e mandar pro banco/printa
+function teste() {
+  console.log('aff');
+
+  }
+//Função que cancela o comentário
+function cancelComment() {
+  document.querySelector('#card-post').innerHTML = '';
+  }
+};
+
+export default Feed;
+
+window.commentPost = commentPost
+

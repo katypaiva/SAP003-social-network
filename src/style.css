@@ -312,6 +312,7 @@ body{
   font-family: 'Lato';
   letter-spacing: -0.03em;
   display: flex;
+  
 }
 
 /*LOGIN*/
@@ -530,10 +531,6 @@ a{
 }
 
 /*FEED*/
-.card-post{
-  background-color: #BDBDBD;
-  width: 90%;
-  margin:auto;
 }
 
 .card-texts{
@@ -551,47 +548,8 @@ a{
 
 .date-time{
 
-}
-
-.btn-logout{
-  color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  width: 25%;
-  height: 4%;
   margin-top: 5%;
   margin-left: 5%;
   background-color: #FF007A;
   border: none;
-  border-radius: 25px;
-}
 
-.mytext {
-  color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  width: 25%;
-  height: 10%;
-  margin-top: 5%;
-  margin-left: 5%;
-  background-color: #FF007A;
-  border: none;
-  border-radius: 25px;
-}
-
-.btn-delete{
-  color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  width: 50%;
-  height: 10%;
-  margin-top: 5%;
-  margin-left: 5%;
-  background-color: #FF007A;
-  border: none;
-  border-radius: 25px;
-
-  }
-}
-
-  
