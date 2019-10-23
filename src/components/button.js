@@ -8,9 +8,10 @@ function Button(props) {
 window.Button = {
   handleClick: (event, callback) => {
     event.preventDefault();
-    callback();
+    callback(event);
   },
-  component:Button,
+  component: Button,
+
 };
 
 

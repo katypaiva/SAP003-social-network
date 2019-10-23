@@ -1,90 +1,153 @@
 import Button from '../components/button.js';
 import Textarea from '../components/textarea.js';
 
-function Feed(props) {
-  loadPost()
-  const template = `
-    <img class='logo-feed' src='img/Logo.png'/>
-    <div class='send-post'>
-    ${Textarea({ class: 'post-textarea', placeholder: 'O que tem de novidade?' })}
-    ${window.Button.component({
-    class: 'sendBtn',
-    onclick: formPost,
-    title: `<img class='img-sendBtn' src='../img/send-btn.png'/>`
-  })}
-    </div>
-    <div id="posts"></div>
-    ${window.Button.component({
-    class: 'logoutBtn',
-    onclick: logOut,
-    title: 'SAIR'
-  })}
-    `
-  return template;
-}
 
-//essa percorre os posts do template e carrega eles
-function loadPost() {
-  const user = firebase.auth().currentUser;
-  const collectionPost = firebase.firestore().collection('posts')
-  collectionPost.where('user', '==', user.uid).get().then(snap => {
-    snap.forEach(post => {
-      addingPost(post)
-    })
-  })
-}
-
-// essa função cria o objeto do post no banco de dados e adiciona o post atual no template
-function formPost() {
-
-  const id = firebase.auth().currentUser.uid
-  const text = document.querySelector('.post-textarea').value;
-  const post = {
-    user: id,
-    likes: 0,
-    comments: [],
-    text: text,
-    time: new Date().toLocaleString('pt-BR'),
+  function Feed(props) {
+    loadPost()
+    const template = `
+        <form id ="formPost">
+        ${Textarea({ class: 'Text1', placeholder: ''})}
+        ${Button({ class: 'mytext', onclick:formPost, title: 'ENVIAR' })}
+        ${Button({ class: 'btn-logout', onclick:logOut, title: 'SAIR' })}
+        </form>
+        <ul id="posts"></ul>
+        `
+    return template;
   }
-  firebase.firestore().collection('posts').add(post)
-    .then(res => {
-      document.querySelector('#posts').innerHTML += `
+
+  //essa percorre os posts do template e carrega eles
+  function loadPost() {
+    const loading = document.querySelector('.loading');
+    loading.innerHTML = ""
+    const user = firebase.auth().currentUser;
+    const collectionPost = firebase.firestore().collection('posts')
+    collectionPost.where('user', '==', user.uid).get().then(snap => {
+      snap.forEach(post => {
+        addingPost(post)
+      })
+    })
+  }
+
+  // essa função cria o objeto do post no banco de dados e cria o card
+  function formPost() {
+    const id = firebase.auth().currentUser.uid;
+    const text = document.querySelector('.Text1').value;
+    const post = {
+      user: id,
+      likes: 0,
+      comments: [],
+      text: text,
+      time: new Date().toLocaleString('pt-BR'),
+    }
+    firebase.firestore().collection('posts').add(post)
+      .then(res => {
+        document.querySelector('#posts').innerHTML += `
+          <section class='card-post'>
+          <p class='post-text' data-id='${res.id}'>${post.text}</p>
+          <p class='likes'>${post.likes}</>
+          <p class='date-time'>${post.time}</p>
+
+          ${Button.component({ 
+            dataId: res.id, 
+            class: 'btn-delete', 
+            onclick:deletePost, 
+            title: 'EXCLUIR'
+          })}
+      
+          ${Button.component({
+            dataId: res.id, 
+            class:'btn-edit',
+            onclick:editPost,
+            title:'EDITAR'})}
+
+
+          ${Button.component({
+            dataId: res.id, 
+            class:'btn-save',
+            onclick:saveEditPost,
+            title:'SALVAR'})}
+           </section>
+          `
+
+
+      })
+  }
+
+  // esta busca os posts do banco de dados e adiciona no template
+  function addingPost(post) {
+    const listPost = document.querySelector('#posts');
+    const templatePost = `
       <section class='card-post'>
       <div class='card-texts'>
-      <p class='post-text'>${post.text}</p>
-      <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.likes}</>
-      ${window.Button.component({
-        class: 'commentBtn',
-        onclick: commentPost,
-        title: `<img class='comment-logo' src='../img/comment-btn.png'/>`
-        })}
-      <p class='date-time'>${post.time}</p>
+      <p class='post-text' data-id='${post.id}' >${post.data().text}</p>
+      <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.data().likes}
+      <p class='date-time'>${post.data().time}</p>
+
+      ${Button({ 
+      dataId: post.id, 
+      class: 'btn-delete', 
+      onclick:deletePost, 
+      title: 'EXCLUIR'
+      })}
+
+      ${Button({
+      dataId: post.id, 
+      class:'btn-edit',
+      onclick:editPost,
+      title:'EDITAR'
+  })}
+
+      ${Button({
+      dataId: post.id, 
+      class:'btn-save',
+      onclick:saveEditPost,
+      title:'SALVAR'})}
+
   
       </div>
       </section>
       `
-    })
-    
+
+    listPost.innerHTML += templatePost
+  }
+
+  //Função de logout
+  function logOut() {
+    firebase.auth().signOut();
+  }
+
+  // função de deletar 
+  function deletePost(event) {
+    const id = event.target.dataset.id;
+    console.log(id)
+    firebase.firestore().collection('posts').doc(id).delete();
+    event.target.parentElement.remove();
+  };
+ // função de editar
+  function editPost(event) {
+    const id = event.target.dataset.id;
+    const textPost = document.querySelector(`.post-text[data-id='${id}']`);
+    textPost.setAttribute('contentEditable', 'true');
+    textPost.onblur = () => {
 }
-// esta busca os posts do banco de dados e posta todos na página
-function addingPost(post) {
-  const listPost = document.querySelector('#posts');
-  const templatePost = `
-  <section class='card-post'>
-  <div class='card-texts'>
-  <p class='post-text'>${post.data().text}</p>
-  <p class='date-time'>${post.data().time}</p>
-  <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.data().likes}
-  ${window.Button.component({
-    class: 'commentBtn',
-    onclick: commentPost,
-    title: `<img class='comment-logo' src='../img/comment-btn.png'/>`
-    })}
-  <div id='card-post'></div>
-  </div>
-  </section>
-  `
-  listPost.innerHTML += templatePost
+
+};
+ // função de salvar a edição 
+function saveEditPost(event) {
+    const id = event.target.dataset.id;
+    const saveText = document.querySelector(`.post-text[data-id='${id}']`);
+    const newText = saveText.textContent;
+    firebase.firestore().collection('posts').doc(id).update({
+      text: newText,
+    });
+    saveText.setAttribute('contentEditable', 'false');
+  }
+
+
+  window.deletePost = deletePost;
+  window.editPost = editPost;
+  })
+    
 }
 
 //Função que abre campo de comentário
@@ -119,11 +182,7 @@ function cancelComment() {
   }
 };
 
-//Função de logout
-function logOut() {
-  firebase.auth().signOut();
-}
-
 export default Feed;
 
 window.commentPost = commentPost
+

@@ -259,6 +259,50 @@
     margin-top: 52px;
   }
 
+  .btn-delete{
+    margin-top: 14px;
+    width: 100px;
+    height: 20px;
+    border: none;
+    background: #FF007A;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Lato;
+    color: #FFFFFF;
+  
+    }
+
+    .btn-edit{
+      margin-top: 14px;
+      width: 100px;
+      height: 20px;
+      border: none;
+      background: rgb(255, 217, 0);
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Lato;
+      color: #FFFFFF;
+    
+
+    }
+
+    .btn-save{
+      margin-top: 14px;
+      width: 100px;
+      height: 20px;
+      border: none;
+      background: rgb(255, 217, 0);
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Lato;
+      color: #FFFFFF;
+
+    }
+    
+
 
 }
 
@@ -487,42 +531,6 @@ a{
 }
 
 /*FEED*/
-.logo-feed{
-  width: 35%;
-  height: auto;
-  margin: 5%;
-}
-
-.card-post{
-  background-color: #FFFFFF;
-  border-radius: 5px;
-  width: 90%;
-  margin:auto;
-  box-shadow: 0px 3px 4px #FF007A;
-}
-
-.send-post{
-  align-content: center;
-  margin-left: 4%;
-  padding: 2%;
-  
-}
-
-.post-textarea{
-  width: 70%;
-  height: 40px;
-  outline: none;
-}
-
-.post-textarea::-webkit-input-placeholder{
-  font-family: 'Lato';
-}
-
-.sendBtn {
-  background: transparent;
-  border: none;
-  width: 46px;
-  height: 46px;
 }
 
 .card-texts{
@@ -539,32 +547,9 @@ a{
 }
 
 .date-time{
-  font-size: 85%;
-  color: #B0BEC5;
-}
 
-.comment-logo{
-  width: 80%;
-  height: auto;
-}
-
-.commentBtn{
-  background: transparent;
-  border: none;
-}
-
-.logoutBtn{
-  color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  width: 15%;
-  height: 5%;
   margin-top: 5%;
   margin-left: 5%;
   background-color: #FF007A;
   border: none;
-  border-radius: 5px;
-}
 
-
-}
