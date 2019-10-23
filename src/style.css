@@ -273,6 +273,36 @@
   
     }
 
+    .btn-edit{
+      margin-top: 14px;
+      width: 100px;
+      height: 20px;
+      border: none;
+      background: rgb(255, 217, 0);
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Lato;
+      color: #FFFFFF;
+    
+
+    }
+
+    .btn-save{
+      margin-top: 14px;
+      width: 100px;
+      height: 20px;
+      border: none;
+      background: rgb(255, 217, 0);
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Lato;
+      color: #FFFFFF;
+
+    }
+    
+
 
 }
 
