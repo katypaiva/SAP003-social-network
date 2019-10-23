@@ -553,3 +553,13 @@ a{
   background-color: #FF007A;
   border: none;
 
+}
+
+.logoutBtn{
+  color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  width: 15%;
+  height: 5%;
+  border-radius: 5px;
+}

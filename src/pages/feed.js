@@ -8,7 +8,7 @@ import Textarea from '../components/textarea.js';
         <form id ="formPost">
         ${Textarea({ class: 'Text1', placeholder: ''})}
         ${Button({ class: 'mytext', onclick:formPost, title: 'ENVIAR' })}
-        ${Button({ class: 'btn-logout', onclick:logOut, title: 'SAIR' })}
+        ${Button({ class: 'logoutBtn', onclick:logOut, title: 'SAIR' })}
         </form>
         <ul id="posts"></ul>
         `
@@ -111,19 +111,14 @@ import Textarea from '../components/textarea.js';
     listPost.innerHTML += templatePost
   }
 
-  //Função de logout
-  function logOut() {
-    firebase.auth().signOut();
-  }
-
-  // função de deletar 
+// função de deletar 
   function deletePost(event) {
     const id = event.target.dataset.id;
     console.log(id)
     firebase.firestore().collection('posts').doc(id).delete();
     event.target.parentElement.remove();
   };
- // função de editar
+// função de editar
   function editPost(event) {
     const id = event.target.dataset.id;
     const textPost = document.querySelector(`.post-text[data-id='${id}']`);
@@ -132,7 +127,7 @@ import Textarea from '../components/textarea.js';
 }
 
 };
- // função de salvar a edição 
+// função de salvar a edição 
 function saveEditPost(event) {
     const id = event.target.dataset.id;
     const saveText = document.querySelector(`.post-text[data-id='${id}']`);
@@ -146,10 +141,7 @@ function saveEditPost(event) {
 
   window.deletePost = deletePost;
   window.editPost = editPost;
-  })
-    
-}
-
+  
 //Função que abre campo de comentário
 function commentPost() {
   const commentInput = document.querySelector('#card-post');
@@ -181,6 +173,11 @@ function cancelComment() {
   document.querySelector('#card-post').innerHTML = '';
   }
 };
+
+  //Função de logout
+  function logOut() {
+    firebase.auth().signOut();
+}
 
 export default Feed;
 
