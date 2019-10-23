@@ -268,6 +268,7 @@ body{
   font-family: 'Lato';
   letter-spacing: -0.03em;
   display: flex;
+  
 }
 
 /*LOGIN*/
@@ -486,10 +487,42 @@ a{
 }
 
 /*FEED*/
+.logo-feed{
+  width: 35%;
+  height: auto;
+  margin: 5%;
+}
+
 .card-post{
-  background-color: #BDBDBD;
+  background-color: #FFFFFF;
+  border-radius: 5px;
   width: 90%;
   margin:auto;
+  box-shadow: 0px 3px 4px #FF007A;
+}
+
+.send-post{
+  align-content: center;
+  margin-left: 4%;
+  padding: 2%;
+  
+}
+
+.post-textarea{
+  width: 70%;
+  height: 40px;
+  outline: none;
+}
+
+.post-textarea::-webkit-input-placeholder{
+  font-family: 'Lato';
+}
+
+.sendBtn {
+  background: transparent;
+  border: none;
+  width: 46px;
+  height: 46px;
 }
 
 .card-texts{
@@ -502,36 +535,36 @@ a{
 }
 
 .likes{
-  
+
 }
 
 .date-time{
-
+  font-size: 85%;
+  color: #B0BEC5;
 }
 
-.btn-logout{
+.comment-logo{
+  width: 80%;
+  height: auto;
+}
+
+.commentBtn{
+  background: transparent;
+  border: none;
+}
+
+.logoutBtn{
   color: #FFFFFF;
   font-size: 100%;
   font-weight: bold;
-  width: 25%;
-  height: 4%;
+  width: 15%;
+  height: 5%;
   margin-top: 5%;
   margin-left: 5%;
   background-color: #FF007A;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
-.mytext {
-  color: #FFFFFF;
-  font-size: 100%;
-  font-weight: bold;
-  width: 25%;
-  height: 10%;
-  margin-top: 5%;
-  margin-left: 5%;
-  background-color: #FF007A;
-  border: none;
-  border-radius: 25px;
-}
+
 }

@@ -4,18 +4,18 @@ import Textarea from '../components/textarea.js';
 function Feed(props) {
   loadPost()
   const template = `
-    <img class="logo" src="img/Logo.png"/>
-    <form id ="formPost">
-    ${Textarea({ class: 'Text1', placeholder: '' })}
+    <img class='logo-feed' src='img/Logo.png'/>
+    <div class='send-post'>
+    ${Textarea({ class: 'post-textarea', placeholder: 'O que tem de novidade?' })}
     ${window.Button.component({
-    class: 'mytext',
+    class: 'sendBtn',
     onclick: formPost,
-    title: 'ENVIAR'
+    title: `<img class='img-sendBtn' src='../img/send-btn.png'/>`
   })}
-    </form>
+    </div>
     <div id="posts"></div>
     ${window.Button.component({
-    class: 'btn-logout',
+    class: 'logoutBtn',
     onclick: logOut,
     title: 'SAIR'
   })}
@@ -38,7 +38,7 @@ function loadPost() {
 function formPost() {
 
   const id = firebase.auth().currentUser.uid
-  const text = document.querySelector('.Text1').value;
+  const text = document.querySelector('.post-textarea').value;
   const post = {
     user: id,
     likes: 0,
@@ -52,13 +52,18 @@ function formPost() {
       <section class='card-post'>
       <div class='card-texts'>
       <p class='post-text'>${post.text}</p>
-      <p class='likes'>${post.likes}</>
+      <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.likes}</>
+      ${window.Button.component({
+        class: 'commentBtn',
+        onclick: commentPost,
+        title: `<img class='comment-logo' src='../img/comment-btn.png'/>`
+        })}
       <p class='date-time'>${post.time}</p>
+  
       </div>
       </section>
       `
     })
-
     
 }
 // esta busca os posts do banco de dados e posta todos na página
@@ -68,15 +73,13 @@ function addingPost(post) {
   <section class='card-post'>
   <div class='card-texts'>
   <p class='post-text'>${post.data().text}</p>
-
-  <p class='likes'><img class="like-logo" src="img/like-btn-able"/>${post.data().likes}
   <p class='date-time'>${post.data().time}</p>
-
+  <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.data().likes}
   ${window.Button.component({
-    class: 'btn-comment',
+    class: 'commentBtn',
     onclick: commentPost,
-    title: 'COMENTAR'
-  })}
+    title: `<img class='comment-logo' src='../img/comment-btn.png'/>`
+    })}
   <div id='card-post'></div>
   </div>
   </section>
@@ -105,15 +108,15 @@ function commentPost() {
     `
   commentInput.innerHTML = templateComment;
 
-  //Criar função que pega o valor e mandar pro banco/printa
-  function teste() {
-    console.log('aff');
+//Criar função que pega o valor e mandar pro banco/printa
+function teste() {
+  console.log('aff');
 
   }
-  //Função que cancela o comentário
-  function cancelComment() {
-    document.querySelector('#card-post').innerHTML = '';
-    }
+//Função que cancela o comentário
+function cancelComment() {
+  document.querySelector('#card-post').innerHTML = '';
+  }
 };
 
 //Função de logout
@@ -122,3 +125,5 @@ function logOut() {
 }
 
 export default Feed;
+
+window.commentPost = commentPost
