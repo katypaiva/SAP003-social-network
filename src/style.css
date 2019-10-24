@@ -308,37 +308,33 @@
 
 /*MOBILE*/
 @media (max-width: 700px){
-body{  
+  body{
   font-family: 'Lato';
   letter-spacing: -0.03em;
   display: flex;
-  
-}
-
-/*LOGIN*/
-.logo {
+  padding: 0;
+  }
+  /*LOGIN*/
+  .logo {
   width: 35%;
   height: auto;
   margin-top: 5%;
-  margin-left: 5%;  
-}
-
-.welcome {
+  margin-left: 5%;
+  }
+  .welcome {
   font-weight: bold;
   font-size: 160%;
   margin-top:13%;
   margin-left: 5%;
-}
-
-.login{
+  }
+  .login{
   color: #B0BEC5;
   font-size: 160%;
   margin-top: 2%;
   margin-left: 5%;
   line-height: 29px;
-}
-
-.email{
+  }
+  .email{
   width: 90%;
   margin-top: 10%;
   margin-left: 5%;
@@ -348,15 +344,13 @@ body{
   opacity: 0.5;
   background: transparent;
   border-bottom: 1px solid #BDBDBD;
-}
-
-.email:focus{
+  }
+  .email:focus{
   outline: none;
   opacity: 100;
   border-bottom: 2px solid #FF007A;
-}
-
-.password {
+  }
+  .password {
   width: 90%;
   margin-top: 13%;
   margin-left: 5%;
@@ -366,20 +360,17 @@ body{
   opacity: 0.5;
   background: transparent;
   border-bottom: 1px solid #BDBDBD;
-}
-
-.password:focus{
+  }
+  .password:focus{
   outline: none;
   opacity: 100;
   border-bottom: 2px solid #FF007A;
-}
-
-.login-error {
+  }
+  .login-error {
   margin-left: 5%;
   color: #CC311D;
-}
-
-.send{
+  }
+  .send{
   color: #FFFFFF;
   font-size: 100%;
   font-weight: bold;
@@ -390,63 +381,54 @@ body{
   background-color: #FF007A;
   border: none;
   border-radius: 25px;
-}
-
-.send:active{
+  }
+  .send:active{
   background-color: #C6005F;
-}
-
-.send:focus{
+  }
+  .send:focus{
   outline: none;
-}
-
-.other-login{
+  }
+  .other-login{
   width: 100%;
   margin-top: 10%;
   text-align: center;
   color: #BDBDBD;
   font-size: 100%;
   font-weight: bold;
-}
-
-.google-btn{
+  }
+  .google-btn{
   width: 100%;
   margin-top: 4%;
   border: none;
   background-color: #FFFFFF;
-}
-
-.register-link{
+  }
+  .register-link{
   margin-top: 13%;
   margin-bottom: 5%;
   font-weight: bold;
   text-align: center;
   font-size: 110%;
   color: #263238
-}
-
-a{
+  }
+  a{
   color: #C6005F;
   text-decoration: none;
-}
-
-/*REGISTER*/
-.logo {
+  }
+  /*REGISTER*/
+  .logo {
   width: 35%;
   height: auto;
   margin-top: 5%;
-  margin-left: 5%;  
-}
-
-.register-info{
+  margin-left: 5%;
+  }
+  .register-info{
   color: #B0BEC5;
   font-size: 160%;
   margin-top: 10%;
   margin-left: 5%;
   line-height: 29px;
-}
-
-.name {
+  }
+  .name {
   width: 90%;
   margin-top: 10%;
   margin-left: 5%;
@@ -456,15 +438,13 @@ a{
   opacity: 0.5;
   background: transparent;
   border-bottom: 1px solid #BDBDBD;
-}
-
-.name:focus {
+  }
+  .name:focus {
   outline: none;
   opacity: 100;
   border-bottom: 2px solid #FF007A;
-}
-
-.email-re {
+  }
+  .email-re {
   width: 90%;
   margin-top: 13%;
   margin-left: 5%;
@@ -474,15 +454,13 @@ a{
   opacity: 0.5;
   background: transparent;
   border-bottom: 1px solid #BDBDBD;
-}
-
-.email-re:focus {
+  }
+  .email-re:focus {
   outline: none;
   opacity: 100;
   border-bottom: 2px solid #FF007A;
-}
-
-.password-re {
+  }
+  .password-re {
   width: 90%;
   margin-top: 13%;
   margin-left: 5%;
@@ -492,15 +470,13 @@ a{
   opacity: 0.5;
   background: transparent;
   border-bottom: 1px solid #BDBDBD;
-}
-
-.password-re:focus {
+  }
+  .password-re:focus {
   outline: none;
   opacity: 100;
   border-bottom: 2px solid #FF007A;
-}
-
-.btn-register {
+  }
+  .btn-register {
   color: #FFFFFF;
   font-size: 100%;
   font-weight: bold;
@@ -511,55 +487,105 @@ a{
   background-color: #FF007A;
   border: none;
   border-radius: 25px;
-}
-
-.btn-register:active{
+  }
+  .btn-register:active{
   background-color: #C6005F;
-}
-
-.btn-register:focus{
+  }
+  .btn-register:focus{
   outline: none;
-}
-
-.login-link {
+  }
+  .login-link {
   margin-top: 16%;
   margin-bottom: 5%;
   font-weight: bold;
   text-align: center;
   font-size: 110%;
   color: #263238
-}
-
-/*FEED*/
-}
-
-.card-texts{
+  }
+  /*FEED*/
+  .bg-feed{
+  background-color: #BDBDBD;
+  }
+  .logo-feed{
+  width: 40%;
+  height: auto;
+  margin: 5% 5% 15% 5%;
+  }
+  .card-post{
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  width: 90%;
+  margin:auto;
+  box-shadow: 0px 3px 4px #263238;
+  }
+  .send-post{
+  align-items: center;
+  display: flex;
+  width: 90%;
+  margin: auto;
+  }
+  .post-textarea{
+  font-family: 'Lato';
+  font-size: 100%;
+  width: 75%;
+  height: 50px;
+  outline: none;
+  border-radius: 5px;
+  }
+  .sendBtn {
+  background: transparent;
+  border: none;
+  margin: 1%;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  }
+  .img-sendBtn{
+  height: 100%;
+  width: auto;
+  }
+  .card-texts{
   margin:5%;
   padding:1%;
-}
-
-.post-text{
-
-}
-
-.likes{
-
-}
-
-.date-time{
-
-  margin-top: 5%;
-  margin-left: 5%;
-  background-color: #FF007A;
+  }
+  .post-text{
+  font-size: 110%;
+  color: #263238;
+  }
+  .date-time{
+  font-size: 85%;
+  color: #B0BEC5;
+  }
+  .comment-logo{
+  width: 23px;
+  height: 23px;
+  margin: 5px 5px 2px 5px;
+  }
+  .like-logo{
+  height: 23px;
+  width: 23px;
+  margin: 5px 5px 2px 5px;
+  }
+  .like-comment-btn{
+  display: flex;
+  align-items: flex-end;
+  }
+  .commentBtn{
+  background: transparent;
   border: none;
-
-}
-
-.logoutBtn{
+  }
+  .logoutBtn{
+  display: flex;
+  justify-content: center;
   color: #FFFFFF;
   font-size: 100%;
   font-weight: bold;
-  width: 15%;
-  height: 5%;
+  width: 70px;
+  height: 30px;
+  background-color: #FF007A;
+  border: none;
   border-radius: 5px;
+  margin: auto;
+  }
 }
+  

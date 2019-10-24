@@ -5,13 +5,14 @@ import Textarea from '../components/textarea.js';
   function Feed(props) {
     loadPost()
     const template = `
-        <form id ="formPost">
-        ${Textarea({ class: 'Text1', placeholder: ''})}
-        ${Button({ class: 'mytext', onclick:formPost, title: 'ENVIAR' })}
-        ${Button({ class: 'logoutBtn', onclick:logOut, title: 'SAIR' })}
-        </form>
-        <ul id="posts"></ul>
-        `
+    <header class='header-feed'><img class='logo-feed' src='img/Logo.png'/></header>    
+    <div class='send-post'>
+    ${Textarea({ class: 'post-textarea', placeholder: 'O que tem de novidade?' })} 
+    ${Button({ class: 'sendBtn', onclick:formPost, title:`<img class='img-sendBtn' src='../img/send-btn.png'/>` })}
+    ${Button({ class: 'logoutBtn', onclick:logOut, title: 'SAIR' })}
+    </div>
+    <div id="posts"></div>
+    `
     return template;
   }
 
@@ -21,9 +22,11 @@ import Textarea from '../components/textarea.js';
     loading.innerHTML = ""
     const user = firebase.auth().currentUser;
     const collectionPost = firebase.firestore().collection('posts')
-    collectionPost.where('user', '==', user.uid).get().then(snap => {
+    collectionPost.orderBy('time', 'desc').get().then(snap => {
       snap.forEach(post => {
+        if(post.data().user==user.uid){
         addingPost(post)
+        }
       })
     })
   }
@@ -44,7 +47,7 @@ import Textarea from '../components/textarea.js';
         document.querySelector('#posts').innerHTML += `
           <section class='card-post'>
           <p class='post-text' data-id='${res.id}'>${post.text}</p>
-          <p class='likes'>${post.likes}</>
+          <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.likes}</>
           <p class='date-time'>${post.time}</p>
 
           ${Button.component({ 
@@ -142,38 +145,6 @@ function saveEditPost(event) {
   window.deletePost = deletePost;
   window.editPost = editPost;
   
-//Função que abre campo de comentário
-function commentPost() {
-  const commentInput = document.querySelector('#card-post');
-  const templateComment = `
-    <section class='card-comment'>
-    <textarea></textarea>
-    ${window.Button.component({
-    class: 'btn-save-comment',
-    onclick: teste,
-    title: 'SALVAR'
-  })}
-
-  ${window.Button.component({
-    class: 'btn-cancel-comment',
-    onclick: cancelComment,
-    title: 'CANCELAR'
-  })}
-    </section>
-    `
-  commentInput.innerHTML = templateComment;
-
-//Criar função que pega o valor e mandar pro banco/printa
-function teste() {
-  console.log('aff');
-
-  }
-//Função que cancela o comentário
-function cancelComment() {
-  document.querySelector('#card-post').innerHTML = '';
-  }
-};
-
   //Função de logout
   function logOut() {
     firebase.auth().signOut();
@@ -181,5 +152,5 @@ function cancelComment() {
 
 export default Feed;
 
-window.commentPost = commentPost
+
 
