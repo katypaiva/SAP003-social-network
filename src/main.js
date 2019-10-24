@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     if (window.location.hash = '#feed'){
         document.querySelector('main').innerHTML = Feed();   
-        }
+             }
       
     }  else if (location.hash === '#register') {
     document.querySelector('main').innerHTML = Register();
