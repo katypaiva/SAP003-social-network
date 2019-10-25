@@ -286,7 +286,7 @@
   outline: none;
   border-radius: 5px;
   }
-  .sendBtn {
+  .send-btn {
   background: transparent;
   border: none;
   margin: 1%;
@@ -394,8 +394,8 @@
     background-color: #e0bb3f;
   }
   
-  .logoutBtn{
-  margin-left: 13%;
+  .logout-btn{
+  margin-left: 11%;
   color: #FFFFFF;
   font-size: 100%;
   font-weight: bold;
@@ -406,13 +406,13 @@
   border-radius: 25px;
 
   }
-  .logoutBtn:focus {
+  .logout-btn:focus {
     outline: none;
   }
-  .logoutBtn:hover {
+  .logout-btn:hover {
     cursor: pointer;  
   }
-  .logoutBtn:active {
+  .logout-btn:active {
     background-color: #C6005F;
   }
   
@@ -644,7 +644,7 @@
   outline: none;
   border-radius: 5px;
   }
-  .sendBtn {
+  .send-btn {
   background: transparent;
   border: none;
   margin: 1%;
@@ -751,7 +751,7 @@
   background: transparent;
   border: none;
   }
-  .logoutBtn{
+  .logout-btn{
   display: flex;
   justify-content: center;
   color: #FFFFFF;
@@ -764,13 +764,13 @@
   border-radius: 25px;
   margin: 14px auto auto ;
   }
-  .logoutBtn:focus {
+  .logout-btn:focus {
   outline: none;
-  }
-  .logoutBtn:hover {
+}
+.logout-btn:hover {
   cursor: pointer;  
   }
-  .logoutBtn:active {
+  .logout-btn:active {
   background-color: #C6005F;
   }
   

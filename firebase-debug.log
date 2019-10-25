@@ -1,0 +1,29 @@
+[debug] [2019-10-25T15:38:56.919Z] ----------------------------------------------------------------------
+[debug] [2019-10-25T15:38:56.921Z] Command:       /usr/bin/node /usr/local/bin/firebase serve
+[debug] [2019-10-25T15:38:56.921Z] CLI Version:   7.5.0
+[debug] [2019-10-25T15:38:56.921Z] Platform:      linux
+[debug] [2019-10-25T15:38:56.921Z] Node Version:  v8.10.0
+[debug] [2019-10-25T15:38:56.921Z] Time:          Fri Oct 25 2019 12:38:56 GMT-0300 (-03)
+[debug] [2019-10-25T15:38:56.921Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-25T15:38:56.926Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-25T15:38:56.926Z] > authorizing via signed-in user
+[debug] [2019-10-25T15:38:56.926Z] [iam] checking project rede-social-lab-2e315 for permissions ["firebase.projects.get"]
+[debug] [2019-10-25T15:38:56.928Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-10-25T15:38:56.928Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-10-25T15:38:57.286Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-25T15:38:57.349Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/rede-social-lab-2e315:testIamPermissions  
+
+[debug] [2019-10-25T15:38:58.482Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-25T15:38:58.484Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rede-social-lab-2e315  
+ 
+[debug] [2019-10-25T15:39:00.015Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/carolrosatto/Documentos/Laboratória/SAP003-social-network'...
+[info] 
+[debug] [2019-10-25T15:39:00.026Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rede-social-lab-2e315/webApps/-/config  
+ 
+[debug] [2019-10-25T15:39:01.245Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: src
+[info] ✔  hosting: Local server: http://localhost:5000

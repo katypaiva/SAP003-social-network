@@ -10,7 +10,7 @@ function Register() {
       ${input({ class: 'name', placeholder: 'Nome', type: 'text' })}<br>
       ${input({ class: 'email-re', placeholder: 'Email', type: 'email' })}<br>
       ${input({ class: 'password-re', placeholder: 'Senha', type: 'password' })}<br>
-      ${Button({ class: 'btn-register', onclick: emailAndPass, title: 'Register' })}<br>
+      ${Button({ class: 'btn-register', onclick: emailAndPass, title: 'Registrar' })}<br>
       </form>
       <p class="login-link">Já é registrado? Faça o <a href="#login">login</a>
       </body>

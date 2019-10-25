@@ -11,14 +11,14 @@ function Feed(props) {
     placeholder: 'O que tem de novidade?'
   })} 
     ${Button({
-    class: 'sendBtn',
+    class: 'send-btn',
     onclick: formPost,
     title: `<img class='img-sendBtn' src='../img/send-btn.png'/>`
   })}
     </div>
     <div id="posts"></div>
     ${Button({
-    class: 'logoutBtn',
+    class: 'btn-logout',
     onclick: logOut,
     title: 'SAIR'
   })}
@@ -58,7 +58,7 @@ function formPost() {
           <section class='card-post' data-id='${res.id}'>
           <div class='card-texts'>
           <p class='post-text' data-id='${res.id}'>${post.text}</p>
-          <p class='likes'><img class='like-logo' src='../img/like-btn-disable.png'/>${post.likes}</p>
+          <p class='likes'>${post.likes}</p>
           <p class='date-time'>${post.time}</p>
         <div class='post-buttons'>
           ${Button.component({
@@ -105,14 +105,12 @@ function addingPost(post) {
     onclick: deletePost,
     title: 'EXCLUIR'
   })}
-
       ${Button({
     dataId: post.id,
     class: 'btn-edit',
     onclick: editPost,
     title: 'EDITAR'
   })}
-
       ${Button({
     dataId: post.id,
     class: 'btn-save',
@@ -123,7 +121,6 @@ function addingPost(post) {
       </div>
       </section>
       `
-
   listPost.innerHTML += templatePost
 }
 
