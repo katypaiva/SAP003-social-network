@@ -19,7 +19,8 @@ firebase.auth().onAuthStateChanged((user) => {
   } else {
     if (location.hash === '#register') {
       document.querySelector('main').innerHTML = Register();
-      document.getElementsByTagName('body')[0].className = 'bg-register'
+
+
     } else {
       location.hash === '#login'
       document.querySelector('main').innerHTML = Login();
