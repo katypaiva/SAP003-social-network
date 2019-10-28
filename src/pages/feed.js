@@ -4,21 +4,22 @@ import Textarea from '../components/textarea.js';
 function Feed() {
 loadPost()
   const template =`
-    <img class="logo" src="img/Logo.png"/>
+    <nav>
+      <img class="logo-feed" src="img/collectio-symbol.png"/>
+      <a href="#profile"><img class="profile-link" src="img/user.png"/></a>
+      ${Button({ class: 'btn-logout', onclick:logOut,title: `<img src='img/logou.png'/>` })}
+    </nav>
     <form id ="formPost">
-        ${Textarea({ class: 'post-textarea', 
-        placeholder: 'O que tem de novidadeW'
-        })}
-        <input type="file" name="arquivos" class="image-btn" accept="image/png, image/jpeg"  multiple />
+      <input type="file" name="arquivos" class="image-btn" accept="image/png, image/jpeg"  multiple />
+      <div>
+        ${Textarea({ class: 'post-textarea',  placeholder: 'O que tem de novidade?'})}
         ${Button({ class: 'send-btn', 
         onclick:formPost, 
-        title: 'ENVIAR' 
+        title: '',
         })}
+      <div>
     </form>
     <div id="posts"></div>
-    ${Button({ class: 'btn-logout',
-     onclick:logOut,
-     title: 'SAIR' })}
     `
   return template;
 }
@@ -54,37 +55,36 @@ function formPost(){
           .then(res => {
             document.querySelector('#posts').insertAdjacentHTML('afterbegin', `
             <section class='card-post'>
-            <div class='card-texts'>
-            <p class='post-text'>${post.text}</p>
-            <img class='post-img' src='${post.file}' onload='loadImg'/>
-            <p class='likes'>${post.likes}</p>
-            <p class='date-time'>${post.time}</p>
-            ${Button.component({ class: 'btn-like', dataId: res.id, onclick:likePost, title: 'like' })}
-              <div class='post-buttons'>
-                  ${Button.component({
+              <div class='card-texts'>
+                <p class='post-text'>${post.text}</p>
+                <img class='post-img' src='${post.file}'/>
+                <p class='date-time'>${post.time}</p>
+                <div class='likes'>${post.likes}</div>
+                ${Button.component({ class: 'btn-like', dataId: res.id, onclick:likePost, title: '' })}
+                <div class='post-buttons'>
+                    ${Button.component({
                     dataId: res.id,
                     class: 'btn-delete',
                     onclick: deletePost,
-                    title: 'EXCLUIR'
-                  })}
-                  ${Button.component({
+                    title: '', 
+                    })}
+                    ${Button.component({
                     dataId: res.id,
                     class: 'btn-edit',
                     onclick: editPost,
-                    title: 'EDITAR'
-                  })}
-                  ${Button.component({
+                    title: ''
+                    })}
+                    ${Button.component({
                     dataId: res.id,
                     class: 'btn-save',
                     onclick: saveEditPost,
-                    title: 'SALVAR'
-                  })}
-               </div>
-            </div>
+                    title: ''
+                    })}
+                </div>
+              </div>
             </section>
             `)
           });
-        console.log('File available at', downloadURL);
       });
 
     })
@@ -97,30 +97,30 @@ function addingPost(post) {
   const templatePost = `
   <section class='card-post' data-id='${post.id}'>
     <div class='card-texts'>
-      <p class='post-text' data-id='${post.id}'>${post.data().text}</p>
-      <img class='post-img' src='${post.data().file}'/>
-      <p class='likes' data-id='${post.id}'>${post.data().likes}
-      <p class='date-time'>${post.data().time}</p>
-      ${Button({ class: 'btn-like', dataId: post.id, onclick: likePost, title: 'like' })}
-      <div class='post-buttons'>
+        <p class='post-text' data-id='${post.id}'>${post.data().text}</p>
+        <img class='post-img' src='${post.data().file}'/>
+        <p class='date-time'>${post.data().time}</p>
+        <div class='likes' data-id='${post.id}'>${post.data().likes}</div>
+        ${Button({ class: 'btn-like', dataId: post.id, onclick: likePost, title: '' })}
+        <div class='post-buttons'>
           ${Button({
-        dataId: post.id,
-        class: 'btn-delete',
-        onclick: deletePost,
-        title: 'EXCLUIR'
-        })}
+          dataId: post.id,
+          class: 'btn-delete',
+          onclick: deletePost,
+          title: '',
+          })}
           ${Button({
-        dataId: post.id,
-        class: 'btn-edit',
-        onclick: editPost,
-        title: 'EDITAR'
-        })}
-        ${Button({
+          dataId: post.id,
+          class: 'btn-edit',
+          onclick: editPost,
+          title: '',
+          })}
+          ${Button({
           dataId: post.id,
           class: 'btn-save',
           onclick: saveEditPost,
-          title: 'SALVAR'
-        })}
+          title: '',
+          })}
       </div>
     </div>
   </section>
