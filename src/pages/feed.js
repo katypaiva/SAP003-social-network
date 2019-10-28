@@ -21,8 +21,8 @@ loadPost()
     </form>
     <div id="posts"></div>
     `
-    return template;
-  }
+  return template;
+}
 
 //essa percorre os posts do template e carrega eles
   function loadPost () {
@@ -86,11 +86,13 @@ function formPost(){
             `)
           });
       });
+
     })
 
 }
-// esta busca os posts do banco de dados e posta todos na página
-function addingPost(post){
+
+// esta busca os posts do banco de dados e adiciona no template
+function addingPost(post) {
   const listPost = document.querySelector('#posts');
   const templatePost = `
   <section class='card-post' data-id='${post.id}'>
@@ -135,13 +137,13 @@ function likePost (event) {
   firebase.firestore().collection('posts').doc(postId).update({likes: likeCounter});
   let post = firebase.firestore().collection('posts').doc();
 } 
-
 // função de deletar 
 function deletePost(event) {
   const id = event.target.dataset.id;
   firebase.firestore().collection('posts').doc(id).delete();
     document.querySelector(`.card-post[data-id='${id}']`).remove();
 };
+
 
 // função de editar
 function editPost(event) {
@@ -170,10 +172,12 @@ window.editPost = editPost;
 window.saveEditPost = saveEditPost;
 window.likePost = likePost;
 
-
 //Função de logout
-function logOut () {
+function logOut() {
   firebase.auth().signOut();
 }
 
 export default Feed;
+
+
+
