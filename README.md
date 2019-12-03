@@ -1,6 +1,6 @@
 # PROJETO REDE SOCIAL - Collectio
 
-## Por: Maria Carolina Rosatto, Katy Paiva e Tamiris Gonçalves
+## Por: Maria Carolina Rosatto, Katlyn Paiva e Tamiris Gonçalves
 
 ### 1. Definição do produto
 Collectio é uma plataforma de socialização para colecionadores. A ideia é que qualquer colecionador possa compartilhar seus itens e combinar trocas, vendas ou somente conhecer a coleção de outras pessoas.
