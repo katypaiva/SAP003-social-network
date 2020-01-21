@@ -325,15 +325,14 @@
 /*     REGISTER */
 
   .bg-register {
-     background-color: #FF007A;
-     background-image: url(img/registerilus.png);
-     background-attachment: fixed;
-     background-repeat: no-repeat;
-     width: 468.49px;
-     height: 494px;
-     background-position-x: 90%;
-     background-position-y: 50%;
-
+    background-color: #FF007A;
+    background-image: url(img/registerilus.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 468.49px;
+    height: 494px;
+    background-position-x: 90%;
+    background-position-y: 50%;
   }
 
   .logo {
@@ -347,6 +346,7 @@
     font-family: Lato;
     font-style: normal;
     font-weight: 500;
+    margin-top: 15%;
     font-size: 48px;
     line-height: 58px;
     letter-spacing: -0.03em;
@@ -445,7 +445,7 @@
     font-size: 16px;
     line-height: 19px;
     color: #FFFFFF;
-    margin-top: 10%;
+    margin-top: 25%;
   }
   .a-register {
     color: #FFFFFF;
@@ -727,12 +727,19 @@
   margin-left: 5%;
   }
   .register-info{
-  color: #B0BEC5;
+  font-family: Lato;
+  color: #FFFFFF;
   font-size: 160%;
   margin-top: 10%;
   margin-left: 5%;
   line-height: 29px;
   }
+
+  .a-register {
+    color: #FFFFFF;
+    font-weight: inherit;
+  }
+
   .name {
 
   width: 90%;
@@ -744,6 +751,10 @@
   opacity: 0.5;
   background: transparent;
   border-bottom: 1px solid #BDBDBD;
+  }
+
+  .bg-register {
+    background-color: #FF007A;
   }
   .name:focus {
   outline: none;
@@ -782,12 +793,22 @@
   opacity: 100;
   border-bottom: 2px solid #FF007A;
   }
+
+  .register-form {    
+    height: 324px;
+    width: 85%;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    padding: 3%;
+    margin-left: 4%;
+  }
   .btn-register {
   color: #FFFFFF;
   font-size: 100%;
   width: 50%;
   height: 45px;
-  margin-top: 10%;
+  margin-top: 15%;
   margin-left: 5%;
   background-color: #FF007A;
   border: none;
@@ -808,7 +829,6 @@
   color: #FFFFFF;
   text-align: center;
   font-size: 110%;
-  color: #263238
   }
   /*FEED*/
   .bg-feed{
