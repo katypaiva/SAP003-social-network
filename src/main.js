@@ -3,7 +3,6 @@ import Register from './pages/register.js';
 import Feed from './pages/feed.js';
 import Profile from './pages/profile.js';
 
-
 function pagesChange() {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -21,8 +20,6 @@ firebase.auth().onAuthStateChanged((user) => {
     if (location.hash === '#register') {
       document.querySelector('main').innerHTML = Register();
       document.getElementsByTagName('body')[0].className = 'bg-register'
-
-
     } else {
       location.hash === '#login'
       document.querySelector('main').innerHTML = Login();

@@ -13,10 +13,7 @@ loadPost()
       <input type="file" name="arquivos" class="image-btn" accept="image/png, image/jpeg"  multiple />
       <div>
         ${Textarea({ class: 'post-textarea',  placeholder: 'O que tem de novidade?'})}
-        ${Button({ class: 'send-btn', 
-        onclick:formPost, 
-        title: '',
-        })}
+        ${Button({ class: 'send-btn', onclick:formPost, title: ''})}
       <div>
     </form>
     <div id="posts"></div>
@@ -62,24 +59,9 @@ function formPost(){
                 <div class='likes'>${post.likes}</div>
                 ${Button.component({ class: 'btn-like', dataId: res.id, onclick:likePost, title: '' })}
                 <div class='post-buttons'>
-                    ${Button.component({
-                    dataId: res.id,
-                    class: 'btn-delete',
-                    onclick: deletePost,
-                    title: '', 
-                    })}
-                    ${Button.component({
-                    dataId: res.id,
-                    class: 'btn-edit',
-                    onclick: editPost,
-                    title: ''
-                    })}
-                    ${Button.component({
-                    dataId: res.id,
-                    class: 'btn-save',
-                    onclick: saveEditPost,
-                    title: ''
-                    })}
+                    ${Button.component({dataId: res.id, class: 'btn-delete', onclick: deletePost, title: '',})}
+                    ${Button.component({dataId: res.id, class: 'btn-edit', onclick: editPost, title: ''})}
+                    ${Button.component({dataId: res.id, class: 'btn-save', onclick: saveEditPost, title: ''})}
                 </div>
               </div>
             </section>
@@ -103,24 +85,9 @@ function addingPost(post) {
         <div class='likes' data-id='${post.id}'>${post.data().likes}</div>
         ${Button({ class: 'btn-like', dataId: post.id, onclick: likePost, title: '' })}
         <div class='post-buttons'>
-          ${Button({
-          dataId: post.id,
-          class: 'btn-delete',
-          onclick: deletePost,
-          title: '',
-          })}
-          ${Button({
-          dataId: post.id,
-          class: 'btn-edit',
-          onclick: editPost,
-          title: '',
-          })}
-          ${Button({
-          dataId: post.id,
-          class: 'btn-save',
-          onclick: saveEditPost,
-          title: '',
-          })}
+          ${Button({dataId: post.id,class: 'btn-delete',onclick: deletePost,title: '',})}
+          ${Button({dataId: post.id,class: 'btn-edit', onclick: editPost, title: ''})}
+          ${Button({dataId: post.id,class: 'btn-save', onclick: saveEditPost,title: '',})}
       </div>
     </div>
   </section>
@@ -128,14 +95,12 @@ function addingPost(post) {
   listPost.innerHTML += templatePost
 }
 
-
 function likePost (event) {
   const postId = event.target.dataset.id;
   const likeElem = document.querySelector(`.likes[data-id='${postId}']`);
   const likeCounter = parseInt(likeElem.textContent) + 1;
   likeElem.textContent = likeCounter
   firebase.firestore().collection('posts').doc(postId).update({likes: likeCounter});
-  let post = firebase.firestore().collection('posts').doc();
 } 
 // função de deletar 
 function deletePost(event) {
@@ -143,7 +108,6 @@ function deletePost(event) {
   firebase.firestore().collection('posts').doc(id).delete();
     document.querySelector(`.card-post[data-id='${id}']`).remove();
 };
-
 
 // função de editar
 function editPost(event) {

@@ -1,17 +1,15 @@
 import Button from '../components/button.js';
 import input from '../components/input.js';
 
-
 function Login() {
   const template = `
-
     <img class="logo" src="img/Logo.png"/>
     <div class ="welcome">Boas vindas,</div>    
     <p class="login">Faça o login para continuar</p>
     <form>
-    ${input({ class: 'email', placeholder: 'Login', type: 'email' })}<br>
-    ${input({ class: 'password', placeholder: 'Senha', type: 'password' })}
-    <p class='error'></p>    
+      ${input({ class: 'email', placeholder: 'Login', type: 'email' })}<br>
+      ${input({ class: 'password', placeholder: 'Senha', type: 'password' })}
+      <p class='error'></p>    
     </form>
     ${Button({ class: 'send', onclick: sendLogin, title: 'Entrar' })}
     <p class="other-login">Ou faça login com as redes sociais</p>
@@ -34,17 +32,11 @@ function sendLogin() {
 
 function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function (result) {
-    let token = result.credential.accessToken;
-    let user = result.user;
+  firebase.auth().signInWithPopup(provider).then(function () {
     window.location.hash = '#feed';
-  }).catch(function (error) {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
+  }).catch(function () {
+      alert('falha ao tentar logar');
   });
-
 };
 
 export default Login
